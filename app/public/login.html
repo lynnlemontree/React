@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body, html {   
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display:table;
+        } 
+        body {
+            display:table-cell;
+            vertical-align:middle;
+        }
+        #login,#regist {
+            width:30%;
+           
+            border:1px solid lightblue;
+            text-align: center;
+            display:table;
+            margin:auto;
+        }  
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div id='login-parent'>
+            <form id='login' style='display:show'>
+            <button type='button' id='btn'>需要一个新账户？</button> 
+            <p><input type='text' placeholder="username"></p>
+            <p><input type='password' placeholder="password"></p>
+            <button>登录</button>
+            </form>
+        </div>
+        <div id='regist-parent' >
+            <form id='regist' style='display:none'>
+            
+            <p><input type='text' placeholder="username"></p>
+            <p><input type='password' placeholder="password"></p>
+            <button>注册</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        btn.onclick=function(){
+            
+            login.style = 'display:none';
+            regist.style = 'display:show';
+        }
+    </script>
+</body>
+</html>
