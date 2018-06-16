@@ -1,28 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Child} from './Child';
-import {Sibling} from './sibling';
-class Parent extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {name:''}
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick(newName){
-        this.setState({name:newName});
-    }
+//Style1 using regular to display props
+class MyComponent extends React.Component{
     render(){
-        return(
-            <div>
-                <h1>Hello World</h1>
-                <Child onChange={this.handleClick} />
-                <Sibling name={this.state.name} />
-
-            </div>
-                
-
-        ) 
+        return <h1>I Love {this.props.name}</h1>;
     }
-
 }
-ReactDOM.render(<Parent />,document.getElementById('test'));
+
+
+//Style 2 using stateless functional component style.
+/*const Content = (props) => <h1>I Love {props.name}</h1>;*/
+
+ReactDOM.render(<MyComponent name='Javascript'/>,document.getElementById('test'));
