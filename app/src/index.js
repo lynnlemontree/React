@@ -1,14 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//Style1 using regular to display props
-class MyComponent extends React.Component{
+import PropTypes from 'prop-types';
+
+//PropTypes/
+/*
+const H1 = (props) => <h1>Hello World This is {props.name}</h1>;
+
+
+H1.propTypes = {
+    name: PropTypes.string.isRequired
+}
+ReactDOM.render(<H1 name='Lynn'/>,test);
+*/
+class Form extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {user_input: ''};
+        this.setOutput = this.setOutput.bind(this);
+    }
+    
+    setOutput(e){
+        this.setState({user_input:e.target.value})
+    }
     render(){
-        return <h1>I Love {this.props.name}</h1>;
+        return (
+            <div>
+                <form>
+                    <input type='text' value={this.state.user_input} 
+                    onChange={this.setOutput}
+                    />
+                
+            
+                <h1>{this.state.user_input}</h1>
+                </form>
+            </div>
+
+        )
     }
 }
+ReactDOM.render(<Form />,test)
 
-
-//Style 2 using stateless functional component style.
-/*const Content = (props) => <h1>I Love {props.name}</h1>;*/
-
-ReactDOM.render(<MyComponent name='Javascript'/>,document.getElementById('test'));
